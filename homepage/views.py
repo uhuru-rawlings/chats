@@ -41,3 +41,9 @@ def delete_contact(request, id):
     contact = Contacts.objects.get(id = id)
     contact.delete()
     return redirect('/chats/')
+
+
+def start_chat(request, id):
+    response = redirect('/chats/')
+    response.set_cookie("chat",id)
+    user = Contacts.objects.get(id = id)

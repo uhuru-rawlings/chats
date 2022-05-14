@@ -36,16 +36,18 @@
                 {% if contacts %}
                 {% for contact in contacts %}
                 <div class="card contact-card">
-                    <div class="flexed">
-                        <div class="images">
-                            {% load static %}
-                            <img src="{% static 'images/user.png' %}" height="100%" width="100%" alt="">
+                    <a href="">
+                        <div class="flexed">
+                            <div class="images">
+                                {% load static %}
+                                <img src="{% static 'images/user.png' %}" height="100%" width="100%" alt="">
+                            </div>
+                            <div class="details">
+                                <div class="name">{{ contact.contactname }}</div>
+                                <div class="number">{{ contact.contact }}</div>
+                            </div>
                         </div>
-                        <div class="details">
-                            <div class="name">{{ contact.contactname }}</div>
-                            <div class="number">{{ contact.contact }}</div>
-                        </div>
-                    </div>
+                    </a>
                     <div class="actions">
                         <span class="text-danger"><a href="{% url 'delete' contact.id %}" class="text-danger"><i class="fa-solid fa-trash"></i></a></span>
                         <span class="text-info"><a href="" class="text-info"><i class="fa-solid fa-pen"></i></a></span>
@@ -59,7 +61,7 @@
             <div class="clearchats"><button class="btn shadow-none" id="clearchat">Clear Chats</button></div>
             <div class="addchartsec">
                 <div class="singlepchat">
-                    
+
                 </div>
                 <form action="" method="post">
                     {% csrf_token %}
