@@ -246,9 +246,11 @@ footer{
     color: #2F2536;
 }
 .selectedchat{
-    border-radius: 5px;
-    width: max-content;
-    background-color: #F5F7FB;
-    padding: 5px;
-    font-size: 14px;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    align-items: center;
+    padding-top: 7px;
+    background-color: #CED4DA;
+    border-radius: 50%;
 }
