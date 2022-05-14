@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from authentication.views import registration_view
 from login.views import login_view
-from homepage.views import chat_view,addcontact_view,delete_contact
+from homepage.views import chat_view,addcontact_view,delete_contact,start_chat
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path('chats/', chat_view, name="chats"),
     path('chats/addcontact/', addcontact_view, name="contact"),
     path('chats/contact/delete/<int:id>/', delete_contact, name="delete"),
+    path('chats/contact/<int:id>/', start_chat, name="startchat"),
 ]

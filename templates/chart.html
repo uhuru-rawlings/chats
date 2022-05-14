@@ -36,7 +36,7 @@
                 {% if contacts %}
                 {% for contact in contacts %}
                 <div class="card contact-card">
-                    <a href="">
+                    <a href="{% url 'startchat' contact.id %}">
                         <div class="flexed">
                             <div class="images">
                                 {% load static %}
@@ -63,11 +63,11 @@
                 <div class="singlepchat">
                    {% if rchat == 'nouser' %}
                    <div class="selectchat">
-                       <p>select chat to start</p>
+                       <p class="text-danger">select chat to start</p>
                    </div>
                    {% else %}
                    <div class="selectedchat">
-                        <div class="name">{{ rchat.username }}</div>
+                        <div class="name">{{ rchat.contactname }}</div>
                         <div class="name">{{ rchat.contact }}</div>
                     </div>
                    {% endif %}

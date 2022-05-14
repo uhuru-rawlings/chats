@@ -14,6 +14,7 @@ def chat_view(request):
     try:
       id = request.COOKIES['chat']
       rchat = Contacts.objects.get(id = id)
+      
     except:
       rchat = 'nouser'
     user = Registration.objects.get(contact = user)

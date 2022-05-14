@@ -245,3 +245,10 @@ footer{
     text-decoration: none;
     color: #2F2536;
 }
+.selectedchat{
+    border-radius: 5px;
+    width: max-content;
+    background-color: #F5F7FB;
+    padding: 5px;
+    font-size: 14px;
+}
