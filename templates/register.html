@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="flex_registration">
+    <div class="registrationform">
+        <form action="" autocomplete="off" method="post" enctype="multipart/form-data" onsubmit="return validateSignup()">
+            <h4 class="text-center">Welcome to chatapp, create account.</h4>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username"><sup class="text-danger">*</sup>User Name.</label>
+                <input type="text" name="username" id="username" oninput="removeError(this.id)" class="form-control shadow-none" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="contacts"><sup class="text-danger">*</sup>Phone Number.</label>
+                <input type="tel" name="contacts" id="contacts" oninput="removeError(this.id)" class="form-control shadow-none" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
+                <label for="userimage"><sup class="text-danger">*</sup>Image.</label>
+                <div class="text-danger" id="exterror"></div>
+                <input type="file" name="userimage" id="userimage" oninput="validateImage()" class="form-control shadow-none">
+            </div>
+            <div class="form-group">
+                <label for="passwords"><sup class="text-danger">*</sup>Password.</label>
+                <input type="password" name="passwords" id="passwords" oninput="removeError(this.id)" class="form-control shadow-none" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="cpasswords"><sup class="text-danger">*</sup>Confirm Password.</label>
+                <div class="text-danger" id="error"></div>
+                <input type="password" name="cpasswords" id="cpasswords" oninput="removeError(this.id)" class="form-control shadow-none" placeholder="Confirm password">
+            </div>
+            <div class="links">
+                <p>Already have Account?<a href="{% url 'signin' %}">Signin</a></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create Account" class="btn btn-primary shadow-none">
+            </div>
+        </form>
+    </div>
+    <div class="signupimages">
+        <div class="clearcard">
+            We offer the best communication platform for communication, easy to start and use. Welcome to 
+            chatapp.
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="flex_logindets">
+    <div class="loginform">
+        <form action="" method="post" onsubmit="return validateLogin()" autocomplete="off">
+            <h4 class="text-center">Welcome Back!!!</h4>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="contact"><sup class="text-danger">*</sup>Phone Number</label>
+                <input type="tel" name="contact" id="contact" oninput="removeError(this.id)" class="form-control shadow-none" placeholder="Enter Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="password"><sup class="text-danger">*</sup>Password</label>
+                <input type="password" name="password"  id="password" oninput="removeError(this.id)" class="form-control shadow-none" placeholder="Enter Password">
+            </div>
+            <div class="remeberme">
+                <p><input type="checkbox" name="remember" id="remember"> Remeber Me.</p>
+            </div>
+            <div class="links">
+                <p>Dont have account?<a href="{% url 'registration' %}">Signup</a></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+    <div class="loginimages">
+        <div class="clearcard">
+            Welcome to chatapp, connect with your friends and family with ease. 
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<!-- <footer>
+    <div class="text-center">&copy; 2022 chatapp | all rights reserved</div>
+</footer> -->
+{% endblock %}

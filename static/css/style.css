@@ -1,0 +1,70 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer{
+    font-size: 12px;
+}
+.flex_logindets{
+    display: flex;
+    align-items: center;
+}
+.flex_logindets .loginform{
+    width: 50%;
+    height: 100vh;
+}
+.flex_logindets .loginform form{
+    width: 60%;
+    margin: auto;
+    margin-top: 20%;
+}
+.flex_logindets .loginform form .form-control{
+    height: 45px;
+}
+.form-control{
+    border-color: #CED4DA ;
+    outline: none !important;
+}
+#exterror,#error{
+    font-size: 10px;
+}
+.form-group{
+    margin-bottom: 15px;
+}
+.loginimages{
+    width: 50%;
+    height: 100vh;
+    background-image: url(../images/login.jpg);
+    background-size: 100% 100%;
+}
+.clearcard{
+    width: 70%;
+    margin: auto;
+    margin-top: 30%;
+    font-size: 23px;
+    min-height: 100px;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 5px 5px 8px rgba(255,255,255,0.7);
+}
+label{
+    font-size: 18px;
+}
+.flex_registration{
+    display: flex;
+    align-items: center;
+}
+.registrationform{
+    width: 50%;
+}
+.registrationform form{
+    width: 60%;
+    margin: auto;
+}
+.signupimages{
+    width: 50%;
+    height: 100vh;
+    background-image: url(../images/signup.jpg);
+    background-size: 100% 100%;
+}
