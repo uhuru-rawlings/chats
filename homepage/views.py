@@ -1,3 +1,4 @@
+from http.client import responses
 from django.shortcuts import redirect, render
 from authentication.models import Registration
 from homepage.models import Contacts,Messages
@@ -10,11 +11,17 @@ def chat_view(request):
             pass
     else:
         return redirect('signin')
+    try:
+      id = request.COOKIES['chat']
+      rchat = Contacts.objects.get(id = id)
+    except:
+      rchat = 'nouser'
     user = Registration.objects.get(contact = user)
     contacts = Contacts.objects.filter(user = user)
     context = {
         'title':'chatapp | Home',
-        'contacts':contacts
+        'contacts':contacts,
+        'rchat':rchat
     }
     return render(request,"chart.html",context)
 
@@ -46,4 +53,5 @@ def delete_contact(request, id):
 def start_chat(request, id):
     response = redirect('/chats/')
     response.set_cookie("chat",id)
-    user = Contacts.objects.get(id = id)
+    return response
+  

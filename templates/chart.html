@@ -61,7 +61,16 @@
             <div class="clearchats"><button class="btn shadow-none" id="clearchat">Clear Chats</button></div>
             <div class="addchartsec">
                 <div class="singlepchat">
-
+                   {% if rchat == 'nouser' %}
+                   <div class="selectchat">
+                       <p>select chat to start</p>
+                   </div>
+                   {% else %}
+                   <div class="selectedchat">
+                        <div class="name">{{ rchat.username }}</div>
+                        <div class="name">{{ rchat.contact }}</div>
+                    </div>
+                   {% endif %}
                 </div>
                 <form action="" method="post">
                     {% csrf_token %}
