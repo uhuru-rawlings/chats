@@ -1,10 +1,64 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
-{% endblock %}
-{% block footer %}
-<footer>
-    <div class="text-center">&copy; 2022 chatapp | all rights reserved</div>
-</footer>
+<div class="chatbody">
+    <div class="container">
+        <div class="contactsection">
+            <div class="search">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group" id="input">
+                        <input type="search" name="searchitem" id="searchitem" class="form-control shadow-none" placeholder="Search">
+                    </div>
+                    <div class="form-group" id="absol">
+                        <button class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="add">
+                <div class="addbutton"><button class="btn"><i class="fa-solid fa-plus"></i></button></div>
+                <div class="addform">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="contactname" id="contactname" class="form-control shadow-none" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phonenumber" id="phonenumber" class="form-control shadow-none" placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save Contact" class="btn btn-primary">
+                        </div>
+                    </form>
+                    <div class="cancel"><button class="btn"><i class="fa-solid fa-xmark"></i></button></div>
+                </div>
+            </div>
+            <div class="allcontacts">
+                <div class="card contact-card">
+                    <div class="actions">
+                        <span class="text-danger"><i class="fa-solid fa-trash"></i></span>
+                        <span class="text-info"><i class="fa-solid fa-pen"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatsection">
+            <div class="clearchats"><button class="btn">Clear Chats</button></div>
+            <div class="addchartsec">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group" id="inputs">
+                        <textarea name="messagecontent" id="messagecontent" cols="30" rows="10" class="form-control shadow-none"></textarea>
+                    </div>
+                    <div class="form-group" id="absolu">
+                        <button class="btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="text-center">&copy; 2022 chatapp | all rights reserved</div>
+    </footer>
+</div>
 {% endblock %}

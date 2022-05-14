@@ -68,3 +68,73 @@ label{
     background-image: url(../images/signup.jpg);
     background-size: 100% 100%;
 }
+.chatbody .container{
+    display: flex;
+}
+.contactsection{
+    padding-top: 20px;
+    width: 30%;
+}
+.chatsection{
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 70%;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.search form{
+    display: flex;
+    position: relative;
+}
+.search form #input{
+    width: 100%;
+}
+.search form #absol{
+    position: absolute;
+    right: 0;
+}
+.addchartsec form{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    position: relative;
+}
+.addchartsec form #inputs{
+    width: 100%;
+}
+.addchartsec form #inputs .form-control{
+    padding-right: 30px;
+}
+#messagecontent{
+    resize: none;
+    height: 45px;
+    overflow: hidden;
+    background-color: #F5F7FB;
+    border: none !important;
+    outline: none !important;
+}
+.addchartsec{
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+.addchartsec form #absolu{
+    position: absolute;
+    right: 0;
+}
+.addform{
+    margin: 20px;
+}
+#searchitem{
+    padding-right: 30px;
+}
+.chatbody{
+    background-color: #F5F7FB;
+    height: 100vh;
+}
+.chatbody .form-control{
+    border: none;
+}
