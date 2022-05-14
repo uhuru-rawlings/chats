@@ -221,6 +221,10 @@ footer{
     text-align: center;
     align-items: center;
     font-size: 23px;
+    border-radius: 50%;
+}
+.contact-card .images img{
+    border-radius: 50%;
 }
 .allcontacts{
     background-color: #ffffff;
