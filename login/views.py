@@ -10,6 +10,16 @@ def login_view(request):
     if request.method == 'POST':
         contact = request.POST['contact']
         password = request.POST['password']
+
+        getuser = Registration.objects.filter(contact = contact)
+        if getuser.exists():
+            user = Registration.objects.get(contact = contact)
+            if check_password(password, user.password):
+                pass
+            else:
+                error = 'Wrong password, try again.'
+        else:
+            error = 'Wrong details provided. check and try again.'
     context = {
         'title':'chatapp | login',
         'error':error,
