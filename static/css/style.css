@@ -206,3 +206,34 @@ footer{
     height: 40px;
     margin-bottom: 15px;
 }
+.allcontacts .card{
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #F5F7FB;
+}
+.flexed{
+    display: flex;
+    align-items: center;
+}
+.contact-card .images{
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    align-items: center;
+    font-size: 23px;
+}
+.allcontacts{
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+}
+.details .number{
+    font-size: 14px;
+    font-weight: lighter;
+}
+.singlepchat{
+    overflow: hidden;
+    height: 63vh;
+    max-height: 63vh;
+    margin-bottom: 20px;
+}
