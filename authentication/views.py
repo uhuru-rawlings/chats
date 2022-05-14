@@ -9,7 +9,7 @@ def registration_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         contact = request.POST['contacts']
-        userimage = request.POST['userimage']
+        userimage = request.FILES['userimage']
         password = request.POST['passwords']
 
         check_contact = Registration.objects.filter(contact = contact)

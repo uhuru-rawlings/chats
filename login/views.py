@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.hashers import make_password, check_password
 from authentication.models import Registration
 
@@ -15,7 +15,9 @@ def login_view(request):
         if getuser.exists():
             user = Registration.objects.get(contact = contact)
             if check_password(password, user.password):
-                pass
+                response = redirect('/chats/')
+                response.set_cookie("userd",contact)
+                return response
             else:
                 error = 'Wrong password, try again.'
         else:

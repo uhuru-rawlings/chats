@@ -7,7 +7,7 @@
         <form action="" autocomplete="off" method="post" enctype="multipart/form-data" onsubmit="return validateSignup()">
             <h4 class="text-center">Welcome to chatapp, create account.</h4>
             <div class="text-danger">{{ error }}</div>
-            <div class="text-success">{{ success }}</div>
+            <div class="text-success">{{ success | safe }}</div>
             {% csrf_token %}
             <div class="form-group">
                 <label for="username"><sup class="text-danger">*</sup>User Name.</label>
