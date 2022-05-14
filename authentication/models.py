@@ -9,7 +9,7 @@ class Registration(models.Model):
     password = models.CharField(max_length=366)
     is_active = models.BooleanField(default=True)
     logedin = models.BooleanField(default=False)
-    last_login = models.DateTimeField()
+    last_login = models.DateTimeField(null=True)
     date_created = models.DateTimeField(auto_now=True)
 
     class Meta:

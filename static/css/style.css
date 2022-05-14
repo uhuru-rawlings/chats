@@ -103,7 +103,7 @@ footer{
     position: relative;
 }
 .addchartsec form #inputs{
-    width: 100%;
+    width: 90%;
 }
 .addchartsec form #inputs .form-control{
     padding-right: 30px;
@@ -176,7 +176,33 @@ footer{
     align-content: center;
     border-radius: 50%;
 }
+.allcontacts .card{
+    position: relative;
+    min-height: 20px;
+}
+
+.card .actions a{
+    padding: 7px;
+    background-color: #CED4DA;
+    border-radius: 4px;
+}
 .card .actions{
-    background-color: #1E74F7;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: fit-content;
+    display: none;
+    transition: 2s;
+}
+.allcontacts .card:hover .actions{
+    display: block;
+}
+.clearchats{
     text-align: right;
+}
+#clearchat{
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: 40px;
+    margin-bottom: 15px;
 }
