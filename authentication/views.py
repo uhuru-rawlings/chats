@@ -18,7 +18,7 @@ def registration_view(request):
         else:
             new_user = Registration(username = username,contact = contact,userimage = userimage, password = make_password(password))
             new_user.save()
-            success = 'user created successfully. go to <a href={% url "signin" %}>login</a>'
+            success = 'user created successfully. go to Login'
     context = {
         'title':'chatapp | register',
         'error':error,
