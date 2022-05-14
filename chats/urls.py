@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from authentication.views import registration_view
-from login import login_view
+from login.views import login_view
 from homepage.views import chat_view
 
 urlpatterns = [
