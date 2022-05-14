@@ -28,27 +28,23 @@ def chat_view(request):
             receiver = rchat
             messages = request.POST['messagecontent']
 
-            new_message = Messages(sender = sender, receiver =  receiver, message = messages)
+            new_message = Messages(sender = sender.contact, receiver =  receiver.contact, message = messages)
             new_message.save()
     information = ''
-    if rchat != 'nouser':
+    chats = ''
+    try:
         sender = user
         receiver = rchat
-        chats = Messages.objects.filter(Q(sender = sender,receiver = receiver),Q(sender = receiver,receiver = sender))
-
-        if not chats:
-            information = 'No chats for this conversation'
-        else:
-            chats = chats
-            information = ''
-    else:
-        information = 'No chat selected,select contact to start a chat.'
+        chats = Messages.objects.filter(Q(sender = sender.contact,receiver = receiver.contact),Q(sender = receiver.contact,receiver = sender.contact))
+    except:
+        chats = ''
     context = {
         'title':'chatapp | Home',
         'contacts':contacts,
         'rchat':rchat,
         'nam_sep':nam_sep,
-        'information':information
+        'information':information,
+        'chats':chats,
     }
     return render(request,"chart.html",context)
 

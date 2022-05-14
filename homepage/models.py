@@ -18,7 +18,7 @@ class Contacts(models.Model):
 # messages
 
 class Messages(models.Model):
-    sender = models.ForeignKey(Registration, on_delete=models.CASCADE)
+    sender = models.CharField(max_length=15)
     receiver = models.CharField(max_length=15)
     message = models.TextField(max_length=99999)
     time_sent = models.DateTimeField(auto_now=True)
@@ -27,4 +27,4 @@ class Messages(models.Model):
         db_table = 'Messages'
 
     def __str__(self):
-        return self.time_sent
+        return self.message

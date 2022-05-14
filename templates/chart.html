@@ -70,9 +70,13 @@
                        <div class="name">{{ nam_sep }}</div>
                     </div>
                    {% endif %}
-                   {% if information %}
-                   {% else %}
-                   <div class="text-info">{{ information }}</div>
+                   {% if chats %}
+                     {% for chat in chats %}
+                      <div class="chatcont">
+                          <div class="chatmess">{{ chat.message }}</div>
+                          <div class="chatmess">{{ chat.time_sent }}</div>
+                      </div>
+                     {% endfor %}
                    {% endif %}
                 </div>
                 <form action="" method="post">
