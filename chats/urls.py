@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from authentication.views import registration_view
 from login.views import login_view
-from homepage.views import chat_view
+from homepage.views import chat_view,addcontact_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/register/', registration_view, name="registration"),
     path('', login_view, name="signin"),
     path('chats/', chat_view, name="chats"),
+    path('chats/addcontact/', addcontact_view, name="contact"),
 ]

@@ -18,7 +18,7 @@
             <div class="add">
                 <div class="addbutton"><button class="btn shadow-none" id="addbtn" onclick="toogleAddContact()"><i class="fa-solid fa-plus"></i></button></div>
                 <div class="addform" id="addform">
-                    <form action="" method="post">
+                    <form action="{% url 'contact' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <input type="text" name="contactname" id="contactname" class="form-control shadow-none" placeholder="Enter name">
