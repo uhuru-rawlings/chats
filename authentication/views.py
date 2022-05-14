@@ -26,8 +26,3 @@ def registration_view(request):
     }
     return render(request,"register.html",context)
 
-def login_view(request):
-    context = {
-        'title':'chatapp | login',
-    }
-    return render(request,"login.html",context)
