@@ -5,6 +5,8 @@
     <div class="loginform">
         <form action="" method="post" onsubmit="return validateLogin()" autocomplete="off">
             <h4 class="text-center">Welcome Back!!!</h4>
+            <div class="text-danger">{{ error }}</div>
+            <div class="text-success">{{ success }}</div>
             {% csrf_token %}
             <div class="form-group">
                 <label for="contact"><sup class="text-danger">*</sup>Phone Number</label>
