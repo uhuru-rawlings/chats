@@ -11,13 +11,13 @@
                         <input type="search" name="searchitem" id="searchitem" class="form-control shadow-none" placeholder="Search">
                     </div>
                     <div class="form-group" id="absol">
-                        <button class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button class="btn shadow-none"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </form>
             </div>
             <div class="add">
-                <div class="addbutton"><button class="btn" id="addbtn"><i class="fa-solid fa-plus"></i></button></div>
-                <div class="addform">
+                <div class="addbutton"><button class="btn shadow-none" id="addbtn" onclick="toogleAddContact()"><i class="fa-solid fa-plus"></i></button></div>
+                <div class="addform" id="addform">
                     <form action="" method="post">
                         {% csrf_token %}
                         <div class="form-group">
@@ -27,31 +27,30 @@
                             <input type="tel" name="phonenumber" id="phonenumber" class="form-control shadow-none" placeholder="Enter phone number">
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Save Contact" class="btn btn-primary">
+                            <input type="submit" value="Save Contact" class="btn btn-primary shadow-none">
                         </div>
                     </form>
-                    <div class="cancel"><button class="btn"><i class="fa-solid fa-xmark"></i></button></div>
                 </div>
             </div>
             <div class="allcontacts">
                 <div class="card contact-card">
                     <div class="actions">
-                        <span class="text-danger"><i class="fa-solid fa-trash"></i></span>
-                        <span class="text-info"><i class="fa-solid fa-pen"></i></span>
+                        <span class="text-danger"><a href="" class="text-danger"><i class="fa-solid fa-trash"></i></a></span>
+                        <span class="text-info"><a href="" class="text-info"><i class="fa-solid fa-pen"></i></a></span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="chatsection">
-            <div class="clearchats"><button class="btn">Clear Chats</button></div>
+            <div class="clearchats"><button class="btn shadow-none">Clear Chats</button></div>
             <div class="addchartsec">
                 <form action="" method="post">
                     {% csrf_token %}
                     <div class="form-group" id="inputs">
-                        <textarea name="messagecontent" id="messagecontent" cols="30" rows="10" class="form-control shadow-none"></textarea>
+                        <textarea name="messagecontent" id="messagecontent" cols="30" rows="10" class="form-control shadow-none" placeholder="Type message here"></textarea>
                     </div>
                     <div class="form-group" id="absolu">
-                        <button class="btn"><i class="fa-solid fa-paper-plane"></i></button>
+                        <button class="btn shadow-none" id="peperplane"><i id="icon" class="fa-solid fa-paper-plane"></i></button>
                     </div>
                 </form>
             </div>

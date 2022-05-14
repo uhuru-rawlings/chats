@@ -138,6 +138,12 @@ footer{
 .chatbody .form-control{
     border: none;
 }
+#addform{
+    display: none;
+}
+.allcontacts{
+    margin-top: 20px;
+}
 #addbtn{
     background-color: #1E74F7;
     color: #ffffff;
@@ -146,4 +152,31 @@ footer{
     text-align: center;
     align-items: center;
     border-radius: 50%;
+}
+#searchitem{
+    border-radius: 30px;
+    padding-left: 20px;
+    height: 45px;
+}
+#absol{
+    margin-top: 10px;
+}
+#messagecontent{
+    border-radius: 30px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+#peperplane{
+    font-size: 25px;
+    height: 45px;
+    width: 45px;
+    background-color: #40A387;
+    color: #ffffff;
+    text-align: center;
+    align-content: center;
+    border-radius: 50%;
+}
+.card .actions{
+    background-color: #1E74F7;
+    text-align: right;
 }
