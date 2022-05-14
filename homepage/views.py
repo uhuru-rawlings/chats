@@ -1,7 +1,9 @@
+from cmath import inf
 from http.client import responses
 from django.shortcuts import redirect, render
 from authentication.models import Registration
 from homepage.models import Contacts,Messages
+from django.db.models import Q
 
 # Create your views here.
 def chat_view(request):
@@ -28,12 +30,25 @@ def chat_view(request):
 
             new_message = Messages(sender = sender, receiver =  receiver, message = messages)
             new_message.save()
+    information = ''
+    if rchat != 'nouser':
+        sender = user
+        receiver = rchat
+        chats = Messages.objects.filter(Q(sender = sender,receiver = receiver),Q(sender = receiver,receiver = sender))
 
+        if not chats:
+            information = 'No chats for this conversation'
+        else:
+            chats = chats
+            information = ''
+    else:
+        information = 'No chat selected,select contact to start a chat.'
     context = {
         'title':'chatapp | Home',
         'contacts':contacts,
         'rchat':rchat,
         'nam_sep':nam_sep,
+        'information':information
     }
     return render(request,"chart.html",context)
 

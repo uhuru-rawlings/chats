@@ -70,6 +70,10 @@
                        <div class="name">{{ nam_sep }}</div>
                     </div>
                    {% endif %}
+                   {% if information %}
+                   {% else %}
+                   <div class="text-info">{{ information }}</div>
+                   {% endif %}
                 </div>
                 <form action="" method="post">
                     {% csrf_token %}
