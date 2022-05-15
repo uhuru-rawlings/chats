@@ -99,6 +99,7 @@ footer{
 .addchartsec form{
     width: 70%;
     margin: auto;
+    margin-top: 20px;
     display: flex;
     position: relative;
 }
@@ -236,9 +237,9 @@ footer{
     font-weight: lighter;
 }
 .singlepchat{
-    overflow: hidden;
-    height: 63vh;
-    max-height: 63vh;
+    overflow: auto;
+    height: 60vh;
+    max-height: 60vh;
     margin-bottom: 20px;
 }
 .contact-card a{
@@ -259,10 +260,36 @@ footer{
     padding: 10px;
     width: fit-content;
     border-radius: 0px 20px 20px 20px;
+    margin: auto;
+    margin-right: 0;
+    margin-bottom: 7px;
 }
 .singlepchat #receiver{
     background-color: #40A387;
     padding: 10px;
     width: fit-content;
-    border-radius: 0px 20px 20px 20px;
+    border-radius: 20px 20px 0px 20px;
+    margin-bottom: 7px;
+    color: #ffffff;
+}
+.singlepchat .chattime{
+    font-size: 12px;
+}
+.singlepchat{
+    width: 70%;
+    margin: auto;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.chatbox{
+    background-color: #40A387;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 30px;
+    border-radius: 20px 20px 20px 0px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20%;
 }

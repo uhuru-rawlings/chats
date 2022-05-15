@@ -13,39 +13,39 @@ def chat_view(request):
     else:
         return redirect('signin')
     user = Registration.objects.get(contact = user)
-    try:
-      id = request.COOKIES['chat']
-      rchat = Contacts.objects.get(id = id)
-      name_array = rchat.contactname.split(' ')
-      nam_sep = name_array[0][0] + name_array[1][0]
-      
-    except:
-      nam_sep = ''
-      rchat = 'nouser'
-    
     contacts = Contacts.objects.filter(user = user)
-    if request.method == 'POST':
-        if rchat != 'nouser':
-            sender = user
-            receiver = rchat
-            messages = request.POST['messagecontent']
+    try:
+       id = request.COOKIES['chat']
+    except:
+        # for x in contacts:
+        id = contacts[0].id
+    if id != 'noid':
+      rchat = Contacts.objects.get(id = id)
+    #   name_array = rchat.contactname.split(' ')
+    #   nam_sep = name_array[0][0] + name_array[1][0]
+      sender = user
+      receiver = rchat
 
-            new_message = Messages(sender = sender.contact, receiver =  receiver.contact, message = messages)
-            new_message.save()
-    information = ''
+      chats = Messages.objects.filter(Q(sender = sender.contact, receiver = receiver.contact) | Q(sender = receiver.contact, receiver = sender.contact))
+      if chats:
+          pass
+      else:
+          chats = ''
+    else:
+      sender = user
+      receiver = rchat
+    #   nam_sep = ''
+      rchat = 'nouser'
 
-    sender = user
-    receiver = rchat
-    chats = Messages.objects.filter(Q(sender = sender.contact,receiver = receiver.contact)| Q(sender = receiver.contact,receiver = sender.contact))
+    
+    
+
     context = {
         'title':'chatapp | Home',
         'contacts':contacts,
-        'rchat':rchat,
-        'nam_sep':nam_sep,
-        'information':information,
         'chats':chats,
-        'sender':sender.contact,
-        'receiver':receiver.contact,
+        'sender':sender,
+        'receiver':receiver
     }
     return render(request,"chart.html",context)
 
@@ -78,4 +78,24 @@ def start_chat(request, id):
     response = redirect('/chats/')
     response.set_cookie("chat",id)
     return response
+
+
+def sendchar_view(request):
+    if request.method == 'POST':
+        try:
+            id = request.COOKIES['chat']
+            rchat = Contacts.objects.get(id = id)
+            if rchat != 'nouser':
+                user = request.COOKIES['userd']
+                user = Registration.objects.get(contact = user)
+                sender = user
+                receiver = rchat
+                messages = request.POST['messagecontent']
+
+                new_message = Messages(sender = sender.contact, receiver =  receiver.contact, message = messages)
+                new_message.save()
+                return redirect('/chats/')
+        except:
+            return redirect('/chats/')
+        
   
