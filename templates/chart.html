@@ -72,10 +72,17 @@
                    {% endif %}
                    {% if chats %}
                      {% for chat in chats %}
-                      <div class="chatcont">
+                       {% if chat.sender == sender %}
+                      <div class="chatcont" id="sender">
                           <div class="chatmess">{{ chat.message }}</div>
                           <div class="chatmess">{{ chat.time_sent }}</div>
                       </div>
+                      {% else %}
+                      <div class="chatcont" id="receiver">
+                        <div class="chatmess">{{ chat.message }}</div>
+                        <div class="chatmess">{{ chat.time_sent }}</div>
+                    </div>
+                      {% endif %}
                      {% endfor %}
                    {% endif %}
                 </div>

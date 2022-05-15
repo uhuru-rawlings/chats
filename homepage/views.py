@@ -12,15 +12,17 @@ def chat_view(request):
        pass
     else:
         return redirect('signin')
+    user = Registration.objects.get(contact = user)
     try:
       id = request.COOKIES['chat']
       rchat = Contacts.objects.get(id = id)
       name_array = rchat.contactname.split(' ')
       nam_sep = name_array[0][0] + name_array[1][0]
+      
     except:
       nam_sep = ''
       rchat = 'nouser'
-    user = Registration.objects.get(contact = user)
+    
     contacts = Contacts.objects.filter(user = user)
     if request.method == 'POST':
         if rchat != 'nouser':
@@ -31,13 +33,10 @@ def chat_view(request):
             new_message = Messages(sender = sender.contact, receiver =  receiver.contact, message = messages)
             new_message.save()
     information = ''
-    chats = ''
-    try:
-        sender = user
-        receiver = rchat
-        chats = Messages.objects.filter(Q(sender = sender.contact,receiver = receiver.contact),Q(sender = receiver.contact,receiver = sender.contact))
-    except:
-        chats = ''
+
+    sender = user
+    receiver = rchat
+    chats = Messages.objects.filter(Q(sender = sender.contact,receiver = receiver.contact)| Q(sender = receiver.contact,receiver = sender.contact))
     context = {
         'title':'chatapp | Home',
         'contacts':contacts,
@@ -45,6 +44,8 @@ def chat_view(request):
         'nam_sep':nam_sep,
         'information':information,
         'chats':chats,
+        'sender':sender.contact,
+        'receiver':receiver.contact,
     }
     return render(request,"chart.html",context)
 

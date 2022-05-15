@@ -254,3 +254,15 @@ footer{
     background-color: #CED4DA;
     border-radius: 50%;
 }
+.singlepchat #sender{
+    background-color: #F5F7FB;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 0px 20px 20px 20px;
+}
+.singlepchat #receiver{
+    background-color: #40A387;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 0px 20px 20px 20px;
+}
