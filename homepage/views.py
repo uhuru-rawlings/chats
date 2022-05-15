@@ -1,5 +1,6 @@
 from cmath import inf
 from http.client import responses
+from urllib import response
 from django.shortcuts import redirect, render
 from authentication.models import Registration
 from homepage.models import Contacts,Messages
@@ -14,41 +15,53 @@ def chat_view(request):
         return redirect('signin')
     user = Registration.objects.get(contact = user)
     contacts = Contacts.objects.filter(user = user)
-    try:
-       id = request.COOKIES['chat']
-    except:
-        # for x in contacts:
-        id = contacts[0].id
-    if id != 'noid':
-      rchat = Contacts.objects.get(id = id)
-    #   name_array = rchat.contactname.split(' ')
-    #   nam_sep = name_array[0][0] + name_array[1][0]
-      sender = user
-      receiver = rchat
+    if contacts:
+        chats = ''
+        sender = ''
+        receiver = ''
+        try:
+           id = request.COOKIES['chat']
+        except:
+            # for x in contacts:
+            id = contacts[0].id
+        if id != 'noid':
+            try:
+                rchat = Contacts.objects.get(id = id)
+                
+                if rchat:
+                    sender = user
+                    receiver = rchat
 
-      chats = Messages.objects.filter(Q(sender = sender.contact, receiver = receiver.contact) | Q(sender = receiver.contact, receiver = sender.contact))
-      if chats:
-          pass
-      else:
-          chats = ''
+                    chats = Messages.objects.filter(Q(sender = sender.contact, receiver = receiver.contact) | Q(sender = receiver.contact, receiver = sender.contact))
+            except:
+                if chats:
+                    pass
+                else:
+                    chats = ''
+        else:
+            sender = user
+            receiver = rchat
+            #   nam_sep = ''
+            rchat = 'nouser'
+
+        context = {
+            'title':'chatapp | Home',
+            'contacts':contacts,
+            'chats':chats,
+            'sender':sender,
+            'receiver':receiver
+        }
+        return render(request,"chart.html",context)
     else:
-      sender = user
-      receiver = rchat
-    #   nam_sep = ''
-      rchat = 'nouser'
-
-    
-    
-
-    context = {
-        'title':'chatapp | Home',
-        'contacts':contacts,
-        'chats':chats,
-        'sender':sender,
-        'receiver':receiver
-    }
-    return render(request,"chart.html",context)
-
+        contacts = []
+        context = {
+            'title':'chatapp | Home',
+            'contacts':contacts,
+            # 'chats':chats,
+            # 'sender':sender,
+            # 'receiver':receiver
+        }
+        return render(request,"chart.html",context)
 
 def addcontact_view(request):
     user = request.COOKIES['userd']
@@ -99,3 +112,12 @@ def sendchar_view(request):
             return redirect('/chats/')
         
   
+
+def logout_view(request):
+    user = request.COOKIES['userd']
+    if user:
+       response = redirect('signin')
+       response.delete_cookie("userd")
+       return response
+    else:
+        return redirect('signin')

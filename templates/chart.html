@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="chatsection">
-            <div class="clearchats"><button class="btn shadow-none" id="clearchat">Clear Chats</button></div>
+            <div class="clearchats"><a href="{% url 'logout' %}"><button class="btn shadow-none" id="clearchat">Logout</button></a></div>
             <div class="addchartsec">
                 <div class="singlepchat">
                    {% if chats %}
